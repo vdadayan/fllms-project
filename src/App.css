@@ -40,7 +40,22 @@ img {
     width: 100%;
 }
 
-
+.films-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+/*card*/
+.card {
+    max-width: 300px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffdddd;
+    transition: all 0.4s ease;
+}
 /*loader*/
 .lds-roller {
     display: inline-block;

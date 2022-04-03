@@ -1,18 +1,16 @@
 import React, {FC} from 'react';
 import ContainerDef from "../components/ContainerDef";
 import {Route, Routes} from "react-router-dom";
-import {useAppSelector} from "../hooks/redux";
-import {$CombinedState} from "redux";
+import FilmsContainer from "../components/FilmsContainer";
 
 const MainStack: FC = () => {
     return (
         <div className='main'>
             <ContainerDef>
                 <Routes>
-                    <Route path={'/topRated'} element={<>Top Rated</>}/>
+                    <Route path={'/'}  element={<FilmsContainer/>}/>
                     <Route path={'/account'} element={<>Account</>}/>
                 </Routes>
-                main
             </ContainerDef>
         </div>
     );

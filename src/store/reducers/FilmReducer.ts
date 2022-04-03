@@ -37,3 +37,5 @@ export const filmSlice = createSlice({
         },
     }
 })
+
+export default filmSlice.reducer

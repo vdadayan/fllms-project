@@ -14,3 +14,10 @@ export interface IFilm {
     video: boolean
     vote_average: number
 }
+
+export interface IFilmResult {
+    page: number
+    results: IFilm[]
+    total_pages: number
+    total_results: number
+}
