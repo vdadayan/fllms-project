@@ -20,4 +20,30 @@ export interface IFilmResult {
     results: IFilm[]
     total_pages: number
     total_results: number
+    isLoading: boolean
+    isLoadingVideo: boolean
+    error: string
+    video_id: number
+    video: IVideoResults[]
+}
+
+export interface IVideoResults {
+    iso_639_1: string,
+    iso_3166_1: string,
+    name: string,
+    key: string,
+    site: string,
+    size: number,
+    type: string,
+    official: boolean,
+    published_at: string,
+    id: string
+}
+
+
+export interface IVideo {
+    id: number
+    results: IVideoResults[]
+    isLoading: boolean
+    error: string
 }

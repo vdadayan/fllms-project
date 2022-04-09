@@ -12,23 +12,17 @@ const initialState: AuthTokenState = {
     token: null,
     isLoading: false,
     error: ''
-
 }
 
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {
-        isAuth: (state, action:PayloadAction<ISession>) => {
-            state.token  = action.payload
-        }
-    },
+    reducers: {},
     extraReducers: {
         [authFilm.pending.type]: (state) => { // ожидание
             state.isLoading = true
         },
         [authFilm.fulfilled.type]: (state, action: PayloadAction<IToken>) => { //success
-            console.log(action)
             state.isLoading = false
             state.error = ''
             state.token = action.payload

@@ -4,11 +4,10 @@ import {IToken} from "../models/IAuth";
 import ContainerDef from "../components/ContainerDef";
 import Loader from "../components/Loader";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {authSlice} from "../store/reducers/AuthReducer";
+import {authFilm} from "../store/reducers/ActionCreator";
 
 const AuthStack: FC = () => {
-    const {token} = useAppSelector(state => state.authReducer)
-    const {data, isLoading, error} = authApi.useGetTokenQuery('')
+    const {token, isLoading, error} = useAppSelector(state => state.authReducer)
     const [postSession, {data: test,}] = authApi.usePostSessionMutation()
     const dispatch = useAppDispatch()
     const acceptToken = (token: IToken) => {
@@ -19,10 +18,10 @@ const AuthStack: FC = () => {
         postSession(localStorage.getItem('requestTokenApproved') || '')
     }
     useEffect(() => {
-        if (test) dispatch(authSlice.actions.isAuth(test))
+        dispatch(authFilm())
 
     }, [test])
-    useEffect(()=> {
+    useEffect(() => {
         if (!token) {
             localStorage.removeItem('requestTokenApproved')
             localStorage.removeItem('endToken')
@@ -36,11 +35,10 @@ const AuthStack: FC = () => {
         }
     }, [])
     if (isLoading) return <Loader/>
+    if (error) return <>{error}</>
     return (
         <div className="auth">
             <ContainerDef>
-                {data && !localStorage.getItem('requestTokenApproved') &&
-                <button onClick={() => acceptToken(data)}>Авторизоваться</button>}
                 {localStorage.getItem('requestTokenApproved') && <button onClick={sessionRequest}>Запрос </button>}
             </ContainerDef>
         </div>
