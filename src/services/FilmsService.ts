@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {IFilm, IFilmResult} from "../models/IFilm";
-import {api_key} from "./AuthService";
+import {api_key} from "../api/api";
 
 
 export const filmsApi = createApi({

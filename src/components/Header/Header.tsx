@@ -12,7 +12,7 @@ const Header: FC = () => {
     const searchHandler = (e: any) => {
         e.preventDefault()
         setValueInput(e.target.value)
-        if (e.target.value === '') return  dispatch(fetchFilms(''))
+        if (e.target.value === '') return dispatch(fetchFilms(''))
         dispatch(fetchFilmsSearch(e.target.value))
     }
     return (

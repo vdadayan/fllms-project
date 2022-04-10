@@ -45,7 +45,7 @@ export const filmSlice = createSlice({
         [fetchFilmsSearch.pending.type]: (state) => {
             state.isLoading = true
         },
-        [fetchFilmsSearch.fulfilled.type]: (state, action:PayloadAction<IFilmResult>) => {
+        [fetchFilmsSearch.fulfilled.type]: (state, action: PayloadAction<IFilmResult>) => {
             state.isLoading = false
             state.page = action.payload.page
             state.results = action.payload.results

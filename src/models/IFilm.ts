@@ -47,3 +47,74 @@ export interface IVideo {
     isLoading: boolean
     error: string
 }
+
+export interface IMovieDetailGenres {
+    id: number,
+    name: string
+}
+
+export type DetailMovie = {
+    adult: boolean | null,
+    backdrop_path: string,
+    belongs_to_collection: number,
+    budget: number,
+    genres: [],
+    homepage: string,
+    id: number,
+    imdb_id: string,
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: number,
+    poster_path: null | string,
+    production_companies: Production_companiesType[],
+    production_countries: Production_countriesType[],
+    release_date: string,
+    revenue: number,
+    runtime: number,
+    spoken_languages: Production_countriesType[],
+    status: string,
+    tagline: string,
+    title: string,
+    video: boolean,
+    vote_average: number,
+    vote_count: number
+}
+
+export interface IMovieDetail {
+    detail: DetailMovie,
+    isLoading: boolean
+}
+
+type Production_companiesType = {
+    id: number,
+    logo_path: string,
+    name: string,
+    origin_country: string
+}
+
+type Production_countriesType = {
+    iso_3166_1: string,
+    name: string
+}
+
+export type CastType = {
+    adult: boolean,
+    gender: number,
+    id: number,
+    known_for_department: string,
+    name: string,
+    original_name: string,
+    popularity: number,
+    profile_path: string,
+    cast_id: number,
+    character: string,
+    credit_id: string,
+    order: number
+}
+
+export interface ICredits {
+    isLoading: boolean,
+    id: number,
+    cast: CastType[]
+}

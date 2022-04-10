@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {ISession, IToken} from "../models/IAuth";
+import {api_key} from "../api/api";
 
-export const api_key = 'd0bdef49e793d75e3f23d69e1ad233b3'
 
 export const authApi = createApi({
     reducerPath: 'authApi',

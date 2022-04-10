@@ -13,7 +13,8 @@ const FilmsContainer: FC = ({children}) => {
     const dispatch = useAppDispatch()
     const [show, setShow] = useState(false)
     const closeModalHandler = () => setShow(false)
-    const showModalHandler = async (id: number) => {
+    const showModalHandler = async (id: number, e: any) => {
+        e.preventDefault()
         await setShow(true)
         await dispatch(getVideo(id))
     }
