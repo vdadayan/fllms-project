@@ -44,6 +44,7 @@ const FilmsContainer: FC = ({children}) => {
                             allowFullScreen/>}
             </ModalContainer>
         </>
+        
     );
 };
 
