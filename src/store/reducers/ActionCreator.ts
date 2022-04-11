@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {IFilm, IFilmResult} from "../../models/IFilm";
-import {IToken} from "../../models/IAuth";
+import {ISession, IToken} from "../../models/IAuth";
 import {FilmsAPI} from "../../api/api";
 
 
@@ -52,7 +52,19 @@ export const authFilm = createAsyncThunk(
     'authFilm',
     async (_, thunkAPI) => {
         try {
-            const response = await FilmsAPI.get<IToken>('authentication/token/new')
+            const response = await FilmsAPI.get<IToken>('/authentication/token/new')
+            return response.data
+        } catch (e) {
+            return thunkAPI.rejectWithValue('Ошибка запроса')
+        }
+    }
+)
+
+export const sessionFilm = createAsyncThunk(
+    'sessionFilm',
+    async (request_token: string, thunkAPI) => {
+        try {
+            const response = await FilmsAPI.post<ISession>('/authentication/session/new',{request_token})
             return response.data
         } catch (e) {
             return thunkAPI.rejectWithValue('Ошибка запроса')

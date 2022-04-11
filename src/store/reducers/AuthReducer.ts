@@ -1,15 +1,24 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ISession, IToken} from "../../models/IAuth";
-import {authFilm} from "./ActionCreator";
+import {authFilm, sessionFilm} from "./ActionCreator";
 
 interface AuthTokenState {
-    token: IToken | ISession | null
+    token: IToken
     isLoading: boolean
     error: string
+    session: ISession
 }
 
 const initialState: AuthTokenState = {
-    token: null,
+    token: {
+        success: false,
+        request_token: '',
+        expires_at: ''
+    },
+    session: {
+        success: false,
+        session_id: ''
+    },
     isLoading: false,
     error: ''
 }
@@ -31,6 +40,9 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.error = action.payload
         },
+        [sessionFilm.fulfilled.type]: (state, action:PayloadAction<ISession>) => {
+            state.session = action.payload
+        }
 
     }
 })
