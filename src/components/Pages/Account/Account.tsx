@@ -3,20 +3,16 @@ import axios from "axios";
 import {FilmsAPI} from "../../../api/api";
 import {useAppSelector} from "../../../hooks/redux";
 import {useAuth} from "../../../hooks/useAuth";
+import Loader from "../../Loader";
 
 const Account: FC = () => {
     const {acceptToken, token} = useAuth()
-    const {session} = useAppSelector(state => state.authReducer)
-    const fetch = async (session_id: string) => {
-        const res = await FilmsAPI.get('/account', {params: {session_id}})
-    }
-    useEffect(() => {
-        if (session.session_id) fetch(session.session_id)
-
-    }, [])
+    const {account, isLoading} = useAppSelector(state => state.accountReducer)
+    if (isLoading) return <Loader/>
     return (
         <div>
-            <button onClick={() => acceptToken(token)}>Авторизоваться</button>
+            {!account.name && <button onClick={() => acceptToken(token)}>Авторизоваться</button>}
+            {account.username}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {ICredits} from "../../models/IFilm";
-import {movieCastAction} from "./ActionCreator";
+import {movieCastAction} from "../ActionCreators/DetailActions";
 
 
 const initialState: ICredits = {

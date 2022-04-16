@@ -1,15 +1,17 @@
 import React, {FC, useEffect} from 'react';
 import Header from "./components/Header/Header";
 import MainStack from "./stacks/MainStack";
-import {useAuth} from "./hooks/useAuth";
+import {useNavigate} from "react-router-dom";
 
 const App: FC = () => {
     const url = new URL(window.location.href)
-    const request_token = url.searchParams.get('request_token')
-    console.log(request_token)
-    const {fetch} = useAuth()
+    const requestApproved = url.searchParams.get('request_token')
+    requestApproved && localStorage.setItem('requestApproved', requestApproved)
+    const navigate = useNavigate()
     useEffect(() => {
-        if (request_token) fetch(request_token)
+        if (requestApproved) {
+            navigate('/account')
+        }
     }, [])
     return (
         <>

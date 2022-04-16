@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ISession, IToken} from "../../models/IAuth";
-import {authFilm, sessionFilm} from "./ActionCreator";
+import {authFilm, sessionFilm} from "../ActionCreators/AuthActions";
 
 interface AuthTokenState {
     token: IToken

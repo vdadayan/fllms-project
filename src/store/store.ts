@@ -3,12 +3,14 @@ import authReducer from './reducers/AuthReducer'
 import filmReducer from './reducers/FilmReducer'
 import movieReducer from './reducers/MovieDetailReducer'
 import movieCast from './reducers/MovieCast'
+import accountReducer from './reducers/AccountReducer'
 
 const rootReducer = combineReducers({
     authReducer,
     filmReducer,
     movieReducer,
-    movieCast
+    movieCast,
+    accountReducer
 })
 
 export const setupStore = () => {

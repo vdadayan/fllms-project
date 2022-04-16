@@ -2,10 +2,10 @@ import React, {FC, useEffect, useState} from 'react';
 import FilmCard from "./FilmCard/FilmCard";
 import Loader from "./Loader";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {fetchFilms, getVideo} from "../store/reducers/ActionCreator";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import ModalContainer from "./ModalContainer";
+import {fetchFilms, getVideo} from "../store/ActionCreators/FilmsActions";
 
 
 const FilmsContainer: FC = ({children}) => {

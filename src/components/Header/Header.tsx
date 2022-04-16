@@ -4,7 +4,7 @@ import HeaderLinks from "./HeaderLinks";
 import {Link} from "react-router-dom";
 import Input from '@mui/material/Input';
 import {useAppDispatch} from "../../hooks/redux";
-import {fetchFilms, fetchFilmsSearch} from "../../store/reducers/ActionCreator";
+import {fetchFilms, fetchFilmsSearch} from "../../store/ActionCreators/FilmsActions";
 
 const Header: FC = () => {
     const [valueInput, setValueInput] = useState<string>('')

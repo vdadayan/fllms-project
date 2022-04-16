@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {DetailMovie, IMovieDetail} from "../../models/IFilm";
-import {movieDetail} from "./ActionCreator";
+import {movieDetail} from "../ActionCreators/DetailActions";
 
 const initialState: IMovieDetail = {
     detail: {

@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {IFilm} from "../../models/IFilm";
 import {Link} from "react-router-dom";
 import {useAppDispatch} from "../../hooks/redux";
-import {movieCastAction, movieDetail} from "../../store/reducers/ActionCreator";
+import {movieCastAction, movieDetail} from "../../store/ActionCreators/DetailActions";
 
 type FilmCardType = {
     film: IFilm,

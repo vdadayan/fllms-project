@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import Loader from "../../Loader";
 import {useParams} from "react-router-dom";
-import {movieCastAction, movieDetail} from "../../../store/reducers/ActionCreator";
+import {movieCastAction, movieDetail} from "../../../store/ActionCreators/DetailActions";
 
 const DetailMovePage: FC = () => {
     const params = useParams()
@@ -35,7 +35,7 @@ const DetailMovePage: FC = () => {
                         <span>{detail.production_countries.map(country => country.name + ' ')}</span>
                     </div>
                     <div>{cast && cast.map(person => {
-                        return <>{person.name + ' '}</>
+                        return <span key={person.id}>{person.name + ' '}</span>
                     })}</div>
                 </div>
             </div>

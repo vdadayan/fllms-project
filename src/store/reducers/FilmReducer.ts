@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IFilmResult, IVideo} from "../../models/IFilm";
-import {fetchFilms, fetchFilmsSearch, getVideo} from "./ActionCreator";
+import {fetchFilms, fetchFilmsSearch, getVideo} from "../ActionCreators/FilmsActions";
 
 
 const initialState: IFilmResult = {
