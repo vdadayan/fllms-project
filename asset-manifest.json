@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fllms-project/static/css/main.0f2cfc81.css",
+    "main.js": "/fllms-project/static/js/main.552e0003.js",
+    "index.html": "/fllms-project/index.html",
+    "main.0f2cfc81.css.map": "/fllms-project/static/css/main.0f2cfc81.css.map",
+    "main.552e0003.js.map": "/fllms-project/static/js/main.552e0003.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f2cfc81.css",
+    "static/js/main.552e0003.js"
+  ]
+}
