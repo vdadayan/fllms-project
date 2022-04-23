@@ -9,7 +9,14 @@ import {fetchFilms, getVideo} from "../store/ActionCreators/FilmsActions";
 
 
 const FilmsContainer: FC = ({children}) => {
-    const {results, isLoading, page, video: arrVideo, isLoadingVideo} = useAppSelector(state => state.filmReducer)
+    const {
+        results,
+        error,
+        isLoading,
+        page,
+        video: arrVideo,
+        isLoadingVideo
+    } = useAppSelector(state => state.filmReducer)
     const dispatch = useAppDispatch()
     const [show, setShow] = useState(false)
     const closeModalHandler = () => setShow(false)
@@ -24,6 +31,7 @@ const FilmsContainer: FC = ({children}) => {
         dispatch(fetchFilms(''))
     }, [])
     if (isLoading) return <Loader/>
+    if (error) return <>{error}</>
     return (
         <>
             <div className='films-container'>
